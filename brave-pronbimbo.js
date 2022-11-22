@@ -1,10 +1,10 @@
 // ==UserScript==
-// @name         Brave Fixes
+// @name         Brave Fix
 // @namespace    http://test.com/
 // @version      0.1
 // @description  try to take over the world!
 // @author       Z
-// @icon         https://www.google.com/s2/favicons?sz=64&domain=pornbimbo.com/
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=github.com
 // @grant        none
 // @run-at       document-end
 // @match        http://pornbimbo.com/*
@@ -18,7 +18,7 @@
 
     document.querySelectorAll('[data-parameters]').forEach(el => {
         let canonical = document.querySelector('[rel="canonical"]').getAttribute('href');
-        let parms = el.getAttribute('data-parameters').replace(/\:/, '=').replace(/\;/, '&');
+        let parms = el.getAttribute('data-parameters').replace(/\:/g, '=').replace(/\;/g, '&');
         let url = `${canonical}?${parms}`;
         el.setAttribute('href', url);
     });
